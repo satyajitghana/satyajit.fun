@@ -1,0 +1,68 @@
+/* Apple Pro Aesthetic - Deep Dark Theme */
+.circle-game-theme {
+    /* Base Colors - Deep, rich darkness */
+    --background: #000000;
+    --foreground: #ffffff;
+
+    /* Surface Colors - Glassy and translucent */
+    --card: rgba(30, 30, 35, 0.6);
+    --card-foreground: #ffffff;
+    --card-border: rgba(255, 255, 255, 0.12);
+
+    --popover: #1c1c1e;
+    --popover-foreground: #ffffff;
+
+    /* Accents - Refined and vibrant */
+    --primary: #0a84ff; /* iOS Blue */
+    --primary-foreground: #ffffff;
+
+    --muted: rgba(255, 255, 255, 0.08);
+    --muted-foreground: rgba(255, 255, 255, 0.5);
+
+    /* Semantic Colors */
+    --success: #32d74b; /* iOS Green */
+    --warning: #ff9f0a; /* iOS Orange */
+    --danger: #ff453a; /* iOS Red */
+    --info: #64d2ff; /* iOS Light Blue */
+    --purple: #bf5af2; /* iOS Purple */
+
+    --radius: 24px;
+}
+
+/* Utilities */
+.glass-panel {
+    background: var(--card);
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.glass-panel:hover {
+    background: rgba(40, 40, 45, 0.7);
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+.text-secondary {
+    color: var(--muted-foreground);
+}
+
+.value-mono {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+    letter-spacing: -0.02em;
+}
+
+/* Custom Scrollbar for metrics if needed */
+::-webkit-scrollbar {
+    width: 6px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}

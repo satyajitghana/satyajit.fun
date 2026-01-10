@@ -1,0 +1,23 @@
+/* Contexto Theme */
+.contexto-theme {
+    --background: #1e1e2e;
+    --foreground: #cdd6f4;
+    --card: #313244;
+    --card-foreground: #cdd6f4;
+    --primary: #89b4fa;
+    --primary-foreground: #1e1e2e;
+    --secondary: #45475a;
+    --secondary-foreground: #a6adc8;
+    --input: #45475a;
+    --border: #45475a;
+
+    /* Rank Colors */
+    --rank-1: #a6e3a1; /* Green */
+    --rank-10: #f9e2af; /* Yellow */
+    --rank-100: #fab387; /* Orange */
+    --rank-1000: #f38ba8; /* Red */
+}
+
+.contexto-theme .guess-bar {
+    transition: width 1s ease-in-out;
+}
