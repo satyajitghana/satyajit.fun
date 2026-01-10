@@ -31,7 +31,7 @@ export function Navbar() {
 					{/* Status */}
 					<div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10">
 						<div className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-						<span className="text-xs text-white/70 font-medium">2 games</span>
+						<span className="text-xs text-white/70 font-medium">7 games</span>
 					</div>
 				</div>
 			</div>
