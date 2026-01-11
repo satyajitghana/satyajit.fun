@@ -1,0 +1,51 @@
+.unlearn-theme {
+  --bg-color: #0f172a;
+  --text-color: #e2e8f0;
+  --accent-color: #38bdf8;
+  --danger-color: #f43f5e;
+  --success-color: #22c55e;
+  
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.unlearn-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--accent-color);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.05s linear;
+  mix-blend-mode: difference;
+}
+
+.unlearn-cursor.hit {
+  background-color: var(--success-color);
+  border-color: var(--success-color);
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.unlearn-cursor.fail {
+  border-color: var(--danger-color);
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.unlearn-target {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.glitch-text {
+  animation: glitch 1s linear infinite;
+}
+
+@keyframes glitch {
+  2%, 64% { transform: translate(2px,0) skew(0deg); }
+  4%, 60% { transform: translate(-2px,0) skew(0deg); }
+  62% { transform: translate(0,0) skew(5deg); }
+}

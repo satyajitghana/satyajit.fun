@@ -1,0 +1,26 @@
+.pixel-game-theme {
+  --background: #050505;
+  --foreground: #ededed;
+  --player: #ffffff;
+  --enemy: #ff3333;
+  --hazard: #ffaa00;
+  --goal: #00ffaa;
+  --terrain: #1a1a1a;
+  --terrain-highlight: #333333;
+}
+
+.pixel-font {
+  font-family: 'Courier New', Courier, monospace;
+  letter-spacing: -0.05em;
+}
+
+.scanline {
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0),
+    rgba(255,255,255,0) 50%,
+    rgba(0,0,0,0.2) 50%,
+    rgba(0,0,0,0.2)
+  );
+  background-size: 100% 4px;
+}

@@ -5,9 +5,121 @@ import { Navbar } from "@/components/navbar";
 import ShinyText from "@/components/react-bits/ShinyText";
 import Silk from "@/components/react-bits/Silk";
 import { motion } from "motion/react";
-import { KeyRound, Circle, ArrowUpRight, Star, Palette, ThermometerSun, BrainCircuit, ListTodo } from "lucide-react";
+import { KeyRound, Circle, ArrowUpRight, Star, Palette, ThermometerSun, BrainCircuit, ListTodo, Eye, Scan, Loader, Shuffle, Terminal, MousePointerClick, Timer, Waves, Fingerprint, Layers, Hourglass, CreditCard, ScanEye, RotateCcw, Weight, RefreshCw, Flame, MousePointer2, ShieldAlert, HardDrive, Wind } from "lucide-react";
 
 const games = [
+  {
+    id: "reload-roulette",
+    title: "Reload Roulette",
+    description: "Refreshing the page is a gamble. Predict the outcome to survive.",
+    icon: RefreshCw,
+    accentColor: "#4ade80",
+  },
+  {
+    id: "heavy-cursor",
+    title: "The Mouse Is Heavy",
+    description: "The cursor has physical weight. Inertia is your enemy. Move slowly to survive.",
+    icon: Weight,
+    accentColor: "#fbbf24", // Amber-400
+  },
+  {
+    id: "temporal-corruption",
+    title: "Temporal Corruption",
+    description: "The browser back button is your only weapon. Rewind time, but beware of corruption.",
+    icon: RotateCcw,
+    accentColor: "#22c55e",
+  },
+  {
+    id: "watching-you",
+    title: "The Game Is Watching You",
+    description: "It knows when you look away. A psychological thriller in your browser.",
+    icon: ScanEye,
+    accentColor: "#ef4444",
+  },
+  {
+    id: "click-debt",
+    title: "Click Debt",
+    description: "Every click borrows from the future. A minimalist game about impulse control.",
+    icon: CreditCard,
+    accentColor: "#ff3333",
+  },
+  {
+    id: "you-missed-it",
+    title: "You Missed It",
+    description: "The party is over. You arrived too late. A game about regret and acceptance.",
+    icon: Hourglass,
+    accentColor: "#a78bfa",
+  },
+  {
+    id: "tab-escape",
+    title: "Tab Escape",
+    description: "Your browser tabs are the enemy. Manage the chaos to survive.",
+    icon: Layers,
+    accentColor: "#ef4444",
+  },
+  {
+    id: "human-error",
+    title: "Human Error",
+    description: "Survival game where perfection kills you. Be imprecise to survive.",
+    icon: Fingerprint,
+    accentColor: "#ef4444",
+  },
+  {
+    id: "entropy",
+    title: "Entropy",
+    description: "An experimental game about chaos and stillness. The game observes your behavior.",
+    icon: Waves,
+    accentColor: "#bf5af2",
+  },
+  {
+    id: "lag-labyrinth",
+    title: "Lag Labyrinth",
+    description: "Input lag is the main mechanic. Predict the future to navigate the maze.",
+    icon: Timer,
+    accentColor: "#00ff41",
+  },
+  {
+    id: "the-button",
+    title: "The Button",
+    description: "A psychological experiment. It judges how you click.",
+    icon: MousePointerClick,
+    accentColor: "#e11d48", // Rose-600
+  },
+  {
+    id: "url-adventure",
+    title: "URL Adventure",
+    description: "Hacking isn't about code. It's about knowing where to look. Edit the URL to progress.",
+    icon: Terminal,
+    accentColor: "#22d3ee",
+  },
+  {
+    id: "unlearn",
+    title: "Unlearn",
+    description: "Your instincts are wrong. A puzzle game about fighting your muscle memory.",
+    icon: Shuffle,
+    accentColor: "#38bdf8",
+  },
+  {
+    id: "loading-screen-tycoon",
+    title: "Loading Screen Tycoon",
+    description: "A fake loading screen that becomes a chaotic management game.",
+    icon: Loader,
+    accentColor: "#a855f7",
+  },
+  {
+    id: "one-pixel-hero",
+    title: "One Pixel Hero",
+    description: "You are 1px in a giant world. Survive, escape, and reveal the truth.",
+    icon: Scan,
+    accentColor: "#ffffff",
+  },
+  {
+    id: "dont-blink",
+    title: "Don't Blink",
+    description: "A test of reflexes and timing. Blink only when the eye allows you to.",
+    icon: Eye,
+    accentColor: "#ef4444",
+  },
   {
     id: "life-checklist",
     title: "Life Checklist",
@@ -56,6 +168,48 @@ const games = [
     description: "Find the secret word by guessing semantically similar words.",
     icon: BrainCircuit,
     accentColor: "#89b4fa",
+  },
+  {
+    id: "glitch-painter",
+    title: "Glitch Painter",
+    description: "Create art through system corruption. Drag, smear, and break the UI.",
+    icon: Palette,
+    accentColor: "#00ff41",
+  },
+  {
+    id: "interface-archaeology",
+    title: "Interface Archaeology",
+    description: "Dig through layers of computing history. Resolve hardware conflicts to sync data.",
+    icon: HardDrive,
+    accentColor: "#22c55e",
+  },
+  {
+    id: "keyboard-heat",
+    title: "Keyboard Heat",
+    description: "Typing generates heat. Balance speed with cooldowns to avoid overheating.",
+    icon: Flame,
+    accentColor: "#f97316",
+  },
+  {
+    id: "liars-cursor",
+    title: "Liar's Cursor",
+    description: "The interface is lying to you. Trust nothing but your instincts.",
+    icon: MousePointer2,
+    accentColor: "#ef4444",
+  },
+  {
+    id: "negative-space",
+    title: "Negative Space",
+    description: "Be still to shape the void. A generative art game about calmness.",
+    icon: Wind,
+    accentColor: "#ffffff",
+  },
+  {
+    id: "unreliable-ui",
+    title: "Unreliable UI",
+    description: "Colors deceive. Labels mislead. Only consistency is betrayal.",
+    icon: ShieldAlert,
+    accentColor: "#ef4444",
   },
 ];
 

@@ -1,0 +1,37 @@
+.lag-game-theme {
+    --bg-color: #0a0a0a;
+    --grid-color: rgba(0, 255, 65, 0.1);
+    --player-color: #00ff41;
+    --future-ghost-color: rgba(0, 255, 65, 0.3);
+    --input-bar-bg: #1a1a1a;
+    --input-bar-border: #333;
+    --hazard-color: #ff3333;
+    --goal-color: #00ccff;
+}
+
+@font-face {
+  font-family: 'VT323';
+  src: url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+}
+
+.lag-font {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.crt-overlay {
+    background: linear-gradient(
+        rgba(18, 16, 16, 0) 50%, 
+        rgba(0, 0, 0, 0.25) 50%
+    ), linear-gradient(
+        90deg, 
+        rgba(255, 0, 0, 0.06), 
+        rgba(0, 255, 0, 0.02), 
+        rgba(0, 0, 255, 0.06)
+    );
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+.glow-text {
+    text-shadow: 0 0 5px var(--player-color);
+}

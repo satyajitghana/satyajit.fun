@@ -1,0 +1,44 @@
+/* Negative Space - Meditative Theme */
+.negative-space-theme {
+    /* Base Colors - Deep, Void-like */
+    --background: #050505;
+    --foreground: #f0f0f0;
+
+    /* Subtle Accents */
+    --void-core: #ffffff;
+    --void-glow: rgba(255, 255, 255, 0.1);
+    
+    /* Interactive Elements */
+    --cursor-influence: rgba(255, 100, 100, 0.2);
+    
+    /* UI Elements */
+    --ui-text-muted: rgba(255, 255, 255, 0.4);
+    
+    /* Animations */
+    --transition-slow: 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.negative-space-theme canvas {
+    /* Ensure hardware acceleration */
+    transform: translateZ(0);
+}
+
+.text-glow {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.fade-in {
+    animation: fadeIn 2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.glass-panel-minimal {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+}

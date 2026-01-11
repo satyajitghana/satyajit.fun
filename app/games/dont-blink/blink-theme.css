@@ -1,0 +1,26 @@
+.blink-game-theme {
+  --blink-primary: #ff3b30;
+  --blink-safe: #30d158;
+  --blink-window: #0a84ff;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.pulse-ring {
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.33);
+    opacity: 0.8;
+  }
+  80%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}

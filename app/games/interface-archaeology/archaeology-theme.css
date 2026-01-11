@@ -1,0 +1,232 @@
+/* Base Game Container */
+.archaeology-container {
+  font-family: 'Inter', system-ui, sans-serif;
+  overflow: hidden;
+  user-select: none;
+  background-color: #000;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+/* =========================================
+   LAYER 0: MODERN (The Surface)
+   Glassmorphism, Gradients, Smoothness
+   ========================================= */
+.layer-modern {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.1s;
+  pointer-events: none; /* Controlled by React based on depth */
+}
+
+.modern-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  padding: 40px;
+  width: 400px;
+  text-align: center;
+}
+
+.modern-btn {
+  background: linear-gradient(45deg, #4f46e5, #06b6d4);
+  border: none;
+  border-radius: 12px;
+  color: white;
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 100%;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.modern-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+}
+
+.modern-btn:disabled {
+  background: #cbd5e1;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* =========================================
+   LAYER 1: RETRO (The Mid-90s)
+   Bevels, Gray, MS Sans Serif
+   ========================================= */
+.layer-retro {
+  position: absolute;
+  inset: 0;
+  background-color: #008080; /* Teal background */
+  font-family: 'MS Sans Serif', 'Segoe UI', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  image-rendering: pixelated;
+  transition: opacity 0.1s;
+}
+
+.retro-window {
+  background-color: #c0c0c0;
+  border-top: 2px solid #dfdfdf;
+  border-left: 2px solid #dfdfdf;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  box-shadow: 2px 2px 0 #00000050;
+  width: 400px;
+  padding: 2px;
+}
+
+.retro-title-bar {
+  background: linear-gradient(90deg, #000080, #1084d0);
+  padding: 2px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.retro-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.retro-tree-view {
+  background: white;
+  border: 2px solid;
+  border-color: #808080 #dfdfdf #dfdfdf #808080; /* Inset */
+  height: 150px;
+  overflow-y: auto;
+  padding: 5px;
+  font-size: 13px;
+  text-align: left;
+}
+
+.retro-tree-item {
+  padding: 2px;
+  cursor: pointer;
+}
+.retro-tree-item.selected {
+  background-color: #000080;
+  color: white;
+  border: 1px dotted #dfdfdf;
+}
+
+.retro-btn {
+  background-color: #c0c0c0;
+  border-top: 2px solid #dfdfdf;
+  border-left: 2px solid #dfdfdf;
+  border-right: 2px solid #000000;
+  border-bottom: 2px solid #000000;
+  padding: 4px 12px;
+  font-family: inherit;
+  font-size: 13px;
+  color: black;
+  cursor: pointer;
+}
+.retro-btn:active {
+  border-top: 2px solid #000000;
+  border-left: 2px solid #000000;
+  border-right: 2px solid #dfdfdf;
+  border-bottom: 2px solid #dfdfdf;
+  transform: translate(1px, 1px);
+}
+
+/* =========================================
+   LAYER 2: TERMINAL (The Roots)
+   Monospace, Green, Scanlines
+   ========================================= */
+.layer-terminal {
+  position: absolute;
+  inset: 0;
+  background-color: #0c0c0c;
+  color: #33ff00;
+  font-family: 'Courier New', monospace;
+  padding: 40px;
+  overflow: hidden;
+  transition: opacity 0.1s;
+}
+
+.terminal-scanline {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,0) 50%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.2));
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.terminal-glow {
+  text-shadow: 0 0 5px rgba(51, 255, 0, 0.5);
+}
+
+.terminal-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  background-color: #33ff00;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+.terminal-entry {
+  margin-bottom: 4px;
+}
+.terminal-entry.error {
+  color: #ff3333;
+  text-shadow: 0 0 5px rgba(255, 51, 51, 0.5);
+}
+
+/* =========================================
+   ARCHAEOLOGY TOOL UI (The Meta Layer)
+   ========================================= */
+.archaeology-controls {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  z-index: 100;
+  border: 1px solid #333;
+}
+
+.depth-slider-container {
+  height: 300px;
+  display: flex;
+  align-items: center;
+}
+
+/* Vertical Slider Reset */
+input[type=range][orient=vertical] {
+    writing-mode: bt-lr; /* IE */
+    -webkit-appearance: slider-vertical; /* WebKit */
+    width: 8px;
+    height: 100%;
+    padding: 0 5px;
+}

@@ -1,0 +1,64 @@
+/* Liar's Cursor Theme - Deceptive & Clean */
+.liar-game-theme {
+    /* Base Colors - Dark, minimal, slightly off */
+    --background: #050505;
+    --foreground: #f0f0f0;
+
+    /* Surface Colors */
+    --card: rgba(20, 20, 25, 0.8);
+    --card-foreground: #ffffff;
+    --card-border: rgba(255, 255, 255, 0.1);
+
+    --popover: #1c1c1e;
+    --popover-foreground: #ffffff;
+
+    /* Accents - "Trust" colors vs "Lie" colors */
+    --primary: #ffffff; 
+    --primary-foreground: #000000;
+    
+    --lie: #ff453a;   /* Red for lies/danger */
+    --truth: #32d74b; /* Green for truth/safety */
+    --doubt: #ff9f0a; /* Orange for uncertainty */
+
+    --muted: rgba(255, 255, 255, 0.05);
+    --muted-foreground: rgba(255, 255, 255, 0.4);
+
+    --radius: 12px;
+}
+
+/* Hide default cursor universally within the game container */
+.liar-game-theme {
+    cursor: none !important;
+}
+.liar-game-theme * {
+    cursor: none !important;
+}
+
+/* Utilities */
+.glass-panel {
+    background: var(--card);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.5);
+    transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.glass-panel:hover {
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.glitch-text {
+    position: relative;
+}
+
+/* Custom Cursor Styles */
+.fake-cursor {
+    pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transition: transform 0.05s ease-out; /* Slight lag? or instant? */
+}

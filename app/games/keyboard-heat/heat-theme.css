@@ -1,0 +1,107 @@
+:root {
+  --heat-bg: #1a1a1a;
+  --heat-fg: #f5f5f5;
+  --heat-primary: #ff4500;
+  --heat-secondary: #ffa500;
+  --heat-cool: #00bfff;
+  --heat-danger: #ff0000;
+}
+
+.keyboard-heat-theme {
+  background-color: var(--heat-bg);
+  color: var(--heat-fg);
+  font-family: 'Courier New', Courier, monospace;
+}
+
+.key-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 8px;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.key {
+  width: 60px;
+  height: 60px;
+  border: 2px solid #333;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #2a2a2a;
+  transition: all 0.1s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.key.active {
+  transform: scale(0.95);
+  border-color: var(--heat-fg);
+}
+
+.key-heat-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, var(--heat-primary), transparent);
+  transition: height 0.2s ease;
+  opacity: 0.7;
+}
+
+.key.overheated {
+  border-color: var(--heat-danger);
+  background: #300;
+  animation: shake 0.5s infinite;
+}
+
+.key.locked {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: #111;
+  border-color: #444;
+}
+
+.heat-meter-container {
+  width: 100%;
+  max-width: 600px;
+  height: 20px;
+  background: #333;
+  border-radius: 10px;
+  margin: 20px auto;
+  overflow: hidden;
+  border: 1px solid #555;
+}
+
+.heat-meter-bar {
+  height: 100%;
+  background: linear-gradient(to right, var(--heat-cool), var(--heat-secondary), var(--heat-danger));
+  transition: width 0.3s ease;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+.particles-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
