@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useEffect, useState, useMemo } from 'react';
-import { motion } from 'framer-motion';
+import { motion } from 'motion/react';
 import { ArrowLeft, RefreshCcw, Info } from 'lucide-react';
 import Link from 'next/link';
 import './heavy-theme.css';
