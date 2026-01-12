@@ -168,7 +168,7 @@ export default function HumanErrorGame() {
 
         // Instructions
         ctx.fillStyle = "#10b981";
-        ctx.font = "20px monospace";
+        ctx.font = "20px 'IBM Plex Mono', monospace";
         ctx.textAlign = "center";
         ctx.fillText("DRAW A POTATO-SHAPED CIRCLE", canvas.width/2, 100);
         ctx.fillStyle = "#ef4444";
@@ -409,7 +409,7 @@ export default function HumanErrorGame() {
                             style={{ width: `${metrics.machineScore}%` }}
                          />
                      </div>
-                     <span className="font-mono font-bold w-8 text-right">{metrics.machineScore}%</span>
+                     <span className="font-ibm-plex font-bold w-8 text-right">{metrics.machineScore}%</span>
                  </div>
                  <div className="text-[10px] uppercase tracking-wider opacity-40">
                      {metrics.velocityStability > 0.8 ? "VELOCITY: SUSPICIOUS" : "VELOCITY: OK"} | 
@@ -431,7 +431,7 @@ export default function HumanErrorGame() {
                      {flavorText}
                  </h2>
                  {gameState === "playing" && (
-                     <p className="mt-2 font-mono text-4xl opacity-20">{score}</p>
+                     <p className="mt-2 font-ibm-plex text-4xl opacity-20">{score}</p>
                  )}
             </div>
 
@@ -452,7 +452,7 @@ export default function HumanErrorGame() {
                                 <>
                                     <Skull className="w-16 h-16 mx-auto text-red-500 mb-4" />
                                     <h1 className="text-3xl font-bold text-white mb-2 tracking-tighter">TERMINATED</h1>
-                                    <p className="text-red-400 font-mono text-sm mb-6">
+                                    <p className="text-red-400 font-ibm-plex text-sm mb-6">
                                         SYSTEM DETECTED IMPERFECTION.
                                         <br/>
                                         OR WAS IT TOO MUCH PERFECTION?
@@ -461,11 +461,11 @@ export default function HumanErrorGame() {
                                     <div className="grid grid-cols-2 gap-4 mb-8">
                                         <div className="bg-white/5 p-4 rounded border border-white/10">
                                             <div className="text-xs uppercase text-gray-500">Distance</div>
-                                            <div className="text-2xl font-mono text-white">{score}m</div>
+                                            <div className="text-2xl font-ibm-plex text-white">{score}m</div>
                                         </div>
                                         <div className="bg-white/5 p-4 rounded border border-white/10">
                                             <div className="text-xs uppercase text-gray-500">Peak Sterility</div>
-                                            <div className="text-2xl font-mono text-red-400">{metrics.machineScore}%</div>
+                                            <div className="text-2xl font-ibm-plex text-red-400">{metrics.machineScore}%</div>
                                         </div>
                                     </div>
                                 </>

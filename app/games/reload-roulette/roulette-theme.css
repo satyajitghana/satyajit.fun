@@ -1,7 +1,7 @@
 .roulette-bg {
   background-color: #0f172a;
   color: #e2e8f0;
-  font-family: 'Courier New', monospace;
+  font-family: var(--font-ibm-plex);
   overflow: hidden;
 }
 

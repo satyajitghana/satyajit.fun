@@ -370,7 +370,7 @@ export default function TemporalCorruption() {
             Exit
         </Button>
         <div className="flex flex-col gap-2 bg-black/80 p-4 border border-green-500 rounded">
-            <div className="text-green-500 font-mono font-bold">TEMPORAL CORRUPTION</div>
+            <div className="text-green-500 font-jetbrains font-bold">TEMPORAL CORRUPTION</div>
             <div className="flex items-center gap-2">
                 <AlertTriangle className={`w-4 h-4 ${corruption > 50 ? 'text-red-500' : 'text-yellow-500'}`} />
                 <span className="text-white text-sm">Integrity: {100 - corruption}%</span>
@@ -396,7 +396,7 @@ export default function TemporalCorruption() {
         {!isPlaying && !gameWon && (
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/80 text-white z-50">
                 <h1 className="text-4xl font-bold mb-4 text-green-500 glitch-text">TEMPORAL CORRUPTION</h1>
-                <p className="max-w-md text-center mb-8 font-mono text-sm text-gray-300">
+                <p className="max-w-md text-center mb-8 font-jetbrains text-sm text-gray-300">
                     Navigate the timeline. Reach the goal.<br/><br/>
                     If you fail, use your <strong className="text-white border px-1">BROWSER BACK BUTTON</strong> to rewind time.<br/><br/>
                     WARNING: Excessive time travel corrupts reality.
@@ -427,7 +427,7 @@ export default function TemporalCorruption() {
 
         {message && !gameOver && !gameWon && (
              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none z-50">
-                <span className="bg-black/70 text-green-400 px-4 py-2 text-xl font-mono border border-green-500">
+                <span className="bg-black/70 text-green-400 px-4 py-2 text-xl font-jetbrains border border-green-500">
                     {message}
                 </span>
              </div>

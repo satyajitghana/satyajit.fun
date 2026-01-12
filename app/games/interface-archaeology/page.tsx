@@ -135,7 +135,7 @@ export default function InterfaceArchaeology() {
         }}
       >
         <div className="terminal-scanline"></div>
-        <div className="max-w-4xl mx-auto mt-20 font-mono text-green-500">
+        <div className="max-w-4xl mx-auto mt-20 font-ibm-plex text-green-500">
             <div className="mb-4 text-xs opacity-50">SYSTEM_BIOS_V1.02 // {new Date().getFullYear() - 30}</div>
             
             <div className="flex flex-col gap-1 min-h-[400px]">
@@ -153,7 +153,7 @@ export default function InterfaceArchaeology() {
                     type="text" 
                     value={terminalInput}
                     onChange={(e) => setTerminalInput(e.target.value)}
-                    className="bg-transparent border-none outline-none text-green-400 flex-1 font-mono uppercase"
+                    className="bg-transparent border-none outline-none text-green-400 flex-1 font-ibm-plex uppercase"
                     autoFocus={depth === 2}
                     placeholder={irqFixed ? "SYSTEM READY" : "ENTER COMMAND..."}
                     disabled={irqFixed}
@@ -276,7 +276,7 @@ export default function InterfaceArchaeology() {
 
       {/* CONTROLS (Always on top) */}
       <div className="archaeology-controls">
-        <div className="text-white font-mono text-xs rotate-90 origin-left translate-x-4 mb-4 whitespace-nowrap">
+        <div className="text-white font-ibm-plex text-xs rotate-90 origin-left translate-x-4 mb-4 whitespace-nowrap">
             INTERFACE DEPTH
         </div>
         <div className="depth-slider-container">
@@ -291,7 +291,7 @@ export default function InterfaceArchaeology() {
                 className="h-full"
             />
         </div>
-        <div className="text-white/50 text-xs font-mono flex flex-col gap-8">
+        <div className="text-white/50 text-xs font-ibm-plex flex flex-col gap-8">
             <span className={depth < 0.5 ? "text-blue-400 font-bold" : ""}>2024</span>
             <span className={depth >= 0.5 && depth < 1.5 ? "text-teal-400 font-bold" : ""}>1995</span>
             <span className={depth >= 1.5 ? "text-green-400 font-bold" : ""}>1980</span>

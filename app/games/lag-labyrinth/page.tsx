@@ -383,7 +383,7 @@ export default function LagLabyrinth() {
         ctx.strokeStyle = "#fff";
         ctx.beginPath(); ctx.moveTo(nowX, barY); ctx.lineTo(nowX, height); ctx.stroke();
         ctx.fillStyle = "#fff";
-        ctx.font = "10px monospace";
+        ctx.font = "10px 'IBM Plex Mono', monospace";
         ctx.fillText("EXECUTE", nowX - 20, barY + 10);
 
         // Inputs moving towards execution
@@ -406,7 +406,8 @@ export default function LagLabyrinth() {
 
         // Current Lag Indicator Text
         ctx.fillStyle = currentLag > 800 ? "#ff3333" : "#00ff41";
-        ctx.font = "20px 'VT323', monospace";
+        ctx.font = "20px 'VT323', monospace"; // Keeping VT323 as it seems intentional, but fallback to IBM Plex Mono if needed
+        ctx.font = "20px 'IBM Plex Mono', monospace";
         ctx.fillText(`LAG: ${Math.round(currentLag)}ms`, 10, barY + 35);
         
     }
@@ -420,7 +421,7 @@ export default function LagLabyrinth() {
   }, [update]);
 
   return (
-    <div className="lag-game-theme min-h-screen bg-[#050505] text-[#00ff41] font-mono flex flex-col items-center justify-center p-4">
+    <div className="lag-game-theme min-h-screen bg-[#050505] text-[#00ff41] font-ibm-plex flex flex-col items-center justify-center p-4">
       {/* Header */}
       <div className="w-full max-w-[800px] flex justify-between items-center mb-4">
         <Link href="/" className="flex items-center gap-2 opacity-60 hover:opacity-100 transition-opacity">

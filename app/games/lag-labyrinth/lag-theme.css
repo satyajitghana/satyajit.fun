@@ -15,7 +15,7 @@
 }
 
 .lag-font {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-ibm-plex);
 }
 
 .crt-overlay {

@@ -5,9 +5,23 @@ import { Navbar } from "@/components/navbar";
 import ShinyText from "@/components/react-bits/ShinyText";
 import Silk from "@/components/react-bits/Silk";
 import { motion } from "motion/react";
-import { KeyRound, Circle, ArrowUpRight, Star, Palette, ThermometerSun, BrainCircuit, ListTodo, Eye, Scan, Loader, Shuffle, Terminal, MousePointerClick, Timer, Waves, Fingerprint, Layers, Hourglass, CreditCard, ScanEye, RotateCcw, Weight, RefreshCw, Flame, MousePointer2, ShieldAlert, HardDrive, Wind } from "lucide-react";
+import { KeyRound, Circle, ArrowUpRight, Star, Palette, ThermometerSun, BrainCircuit, ListTodo, Eye, Scan, Loader, Shuffle, Terminal, MousePointerClick, Timer, Waves, Fingerprint, Layers, Hourglass, CreditCard, ScanEye, RotateCcw, Weight, RefreshCw, Flame, MousePointer2, ShieldAlert, HardDrive, Wind, Sparkles, Wand2 } from "lucide-react";
 
 const games = [
+  {
+    id: "eldermere",
+    title: "Eldermere",
+    description: "Learn actual magic spells with your hands. Your body is the controller.",
+    icon: Wand2,
+    accentColor: "#a855f7",
+  },
+  {
+    id: "cosmic-shapes",
+    title: "Cosmic Shapes",
+    description: "Use your hands and face to control 3D objects in space.",
+    icon: Sparkles,
+    accentColor: "#a855f7",
+  },
   {
     id: "reload-roulette",
     title: "Reload Roulette",

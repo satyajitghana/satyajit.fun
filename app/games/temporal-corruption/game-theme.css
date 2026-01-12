@@ -1,5 +1,5 @@
 .temporal-game-container {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: var(--font-jetbrains);
   background-color: #0a0a0a;
   color: #00ff00;
   min-height: 100vh;

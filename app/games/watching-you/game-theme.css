@@ -1,7 +1,7 @@
 .watching-you-container {
     background-color: #050505;
     color: #e0e0e0;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-mono);
     overflow: hidden;
     user-select: none;
 }

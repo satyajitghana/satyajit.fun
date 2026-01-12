@@ -55,7 +55,7 @@
 .glitch-text {
   position: relative;
   color: var(--glitch-fg);
-  font-family: monospace;
+  font-family: var(--font-mono);
 }
 
 .glitch-text::before,
@@ -131,6 +131,6 @@
 }
 
 .pixel-font {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: var(--font-jetbrains);
     letter-spacing: -1px;
 }

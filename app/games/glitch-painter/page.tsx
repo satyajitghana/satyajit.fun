@@ -318,7 +318,7 @@ export default function GlitchPainter() {
   }, [desyncLevel]);
 
   return (
-    <div className="glitch-game-theme min-h-screen bg-[var(--glitch-bg)] text-[var(--glitch-fg)] overflow-hidden font-mono selection:bg-[var(--glitch-accent)] selection:text-white relative">
+    <div className="glitch-game-theme min-h-screen bg-[var(--glitch-bg)] text-[var(--glitch-fg)] overflow-hidden font-jetbrains selection:bg-[var(--glitch-accent)] selection:text-white relative">
       <div className="scanlines" />
       <div className="vignette" />
       
@@ -445,7 +445,7 @@ function GlitchableElement({ data, tool, onDrag }: { data: GlitchElement, tool: 
                             <div className="w-2 h-2 rounded-full bg-yellow-500" />
                         </div>
                     </div>
-                    <div className="p-4 flex-1 text-[#00ff41] font-mono text-sm overflow-hidden relative">
+                    <div className="p-4 flex-1 text-[#00ff41] font-jetbrains text-sm overflow-hidden relative">
                          <div className="absolute inset-0 opacity-10 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
                          {'>'} SYSTEM FAILURE<br/>
                          {'>'} REBOOT REQUIRED<br/>
@@ -464,9 +464,9 @@ function GlitchableElement({ data, tool, onDrag }: { data: GlitchElement, tool: 
             )}
 
             {data.type === "input" && (
-                 <div 
+                 <div
                     style={{ width: data.width, height: data.height }}
-                    className="bg-black border-b-2 border-[var(--glitch-fg)] p-2 text-[var(--glitch-fg)] font-mono flex items-center"
+                    className="bg-black border-b-2 border-[var(--glitch-fg)] p-2 text-[var(--glitch-fg)] font-jetbrains flex items-center"
                  >
                     {data.content}<span className="animate-pulse">_</span>
                  </div>

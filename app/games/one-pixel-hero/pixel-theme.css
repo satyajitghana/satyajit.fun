@@ -10,7 +10,7 @@
 }
 
 .pixel-font {
-  font-family: 'Courier New', Courier, monospace;
+  font-family: var(--font-mono);
   letter-spacing: -0.05em;
 }
 

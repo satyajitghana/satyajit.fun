@@ -1,0 +1,112 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&display=swap');
+
+.eldermere-container {
+  width: 100vw;
+  height: 100vh;
+  background-color: #050505;
+  color: #e0e0e0;
+  font-family: 'Cinzel', serif;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(168, 85, 247, 0.5);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(168, 85, 247, 0.8);
+}
+
+.spell-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 2rem;
+}
+
+.spell-feedback {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 900;
+  text-shadow: 0 0 20px rgba(168, 85, 247, 0.8);
+  opacity: 0;
+  animation: feedbackFadeIn 2s forwards;
+  pointer-events: none;
+}
+
+@keyframes feedbackFadeIn {
+    0% { opacity: 0; transform: translate(-50%, 10px); }
+    10% { opacity: 1; transform: translate(-50%, 0); }
+    90% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, -10px); }
+}
+
+.webcam-feed {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 240px;
+  height: 180px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 20;
+  opacity: 0.8;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  pointer-events: auto;
+  transition: opacity 0.3s;
+}
+
+.webcam-feed:hover {
+    opacity: 1;
+}
+
+.webcam-feed video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1);
+}
+
+.instruction-panel {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  max-width: 350px;
+  z-index: 20;
+  border-radius: 0 0 0 0; /* Sharp corners like a UI panel */
+  background: linear-gradient(135deg, rgba(10, 10, 15, 0.9), rgba(30, 30, 40, 0.8));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+}
+
+/* Glow effects for Spell Guide */
+.glow-filter {
+    filter: drop-shadow(0 0 5px #4ade80);
+}
+
+/* Glassmorphism utility */
+.glass-panel {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}

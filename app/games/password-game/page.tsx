@@ -231,7 +231,7 @@ export default function PasswordGame() {
 											value={password}
 											onChange={(e) => setPassword(e.target.value)}
 											disabled={gameWon}
-											className="w-full px-6 py-5 bg-transparent text-white text-xl font-mono placeholder-white/30 focus:outline-none"
+											className="w-full px-6 py-5 bg-transparent text-white text-xl font-jetbrains placeholder-white/30 focus:outline-none"
 										/>
 										<div className="flex items-center justify-between px-6 py-3 border-t border-orange-500/10 bg-orange-500/5">
 											<div className="flex items-center gap-3">
@@ -243,7 +243,7 @@ export default function PasswordGame() {
 													{getStrengthLevel().text}
 												</span>
 											</div>
-											<span className="text-sm text-orange-300/50 font-mono">
+											<span className="text-sm text-orange-300/50 font-jetbrains">
 												{password.length} chars
 											</span>
 										</div>
@@ -274,7 +274,7 @@ export default function PasswordGame() {
 									<p className="text-white/50 mb-6">
 										You&apos;ve conquered the password bureaucracy
 									</p>
-									<div className="p-4 rounded-xl bg-black/30 font-mono text-sm text-white/70 break-all mb-6 max-w-md mx-auto border border-green-500/20">
+									<div className="p-4 rounded-xl bg-black/30 font-jetbrains text-sm text-white/70 break-all mb-6 max-w-md mx-auto border border-green-500/20">
 										{password}
 									</div>
 									<Button

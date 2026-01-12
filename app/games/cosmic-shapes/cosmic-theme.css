@@ -1,0 +1,11 @@
+/* Cosmic Shapes Theme */
+/* Just adding some keyframes if needed, but Tailwind handles most */
+
+@keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 255, 255, 0.2); }
+    50% { box-shadow: 0 0 40px rgba(0, 255, 255, 0.5); }
+}
+
+.cosmic-glow {
+    animation: pulse-glow 2s infinite;
+}

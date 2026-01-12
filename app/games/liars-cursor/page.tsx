@@ -122,7 +122,11 @@ export default function LiarsCursorGame() {
   // --- State ---
   const [realPos, setRealPos] = useState({ x: -100, y: -100 });
   const [fakePos, setFakePos] = useState({ x: -100, y: -100 });
-  const [velocity, setVelocity] = useState({ x: 0, y: 0 }); // For drift physics
+  // Use ref for velocity to avoid re-renders in animation loop
+  const velocityRef = useRef({ x: 0, y: 0 });
+  
+  // Keep track of fakePos in a ref for event handlers to access without dependency cycles
+  const fakePosRef = useRef({ x: -100, y: -100 });
   
   const [gameState, setGameState] = useState<"intro" | "playing" | "won" | "lost">("intro");
   const [levelIndex, setLevelIndex] = useState(0);
@@ -147,10 +151,12 @@ export default function LiarsCursorGame() {
           // Sync cursor perfectly when not playing
           setFakePos(prev => {
             // Smooth lerp to real pos for intro
-            return {
+            const next = {
                 x: prev.x + (realPos.x - prev.x) * 0.2,
                 y: prev.y + (realPos.y - prev.y) * 0.2
             };
+            fakePosRef.current = next;
+            return next;
           });
           animationFrameId = requestAnimationFrame(update);
           return;
@@ -158,7 +164,9 @@ export default function LiarsCursorGame() {
 
       // Reveal Mechanic: If spacebar is held, snap to real pos but drain trust
       if (isRevealing) {
-           setFakePos({ x: realPos.x, y: realPos.y });
+           const next = { x: realPos.x, y: realPos.y };
+           setFakePos(next);
+           fakePosRef.current = next;
            // Drain trust rapidly
            setTrust(t => Math.max(0, t - 0.2));
            animationFrameId = requestAnimationFrame(update);
@@ -182,8 +190,8 @@ export default function LiarsCursorGame() {
         }
 
         // 2. Add Drift (Brownian motion added to velocity)
-        let vx = velocity.x;
-        let vy = velocity.y;
+        let vx = velocityRef.current.x;
+        let vy = velocityRef.current.y;
         
         if (driftIntensity > 0) {
             vx += (Math.random() - 0.5) * driftIntensity;
@@ -193,11 +201,11 @@ export default function LiarsCursorGame() {
             vx *= 0.95;
             vy *= 0.95;
             
-            setVelocity({ x: vx, y: vy });
+            velocityRef.current = { x: vx, y: vy };
         } else {
             // Reset velocity if no drift
             vx = 0; vy = 0;
-            if (velocity.x !== 0) setVelocity({ x: 0, y: 0 });
+            velocityRef.current = { x: 0, y: 0 };
         }
 
         // 3. Apply changes
@@ -207,15 +215,9 @@ export default function LiarsCursorGame() {
         const newX = targetX + vx * 5;
         const newY = targetY + vy * 5;
 
-        // Smooth catchup (Lag factor)
-        // const lag = 0.5;
-        // return {
-        //     x: currentFake.x + (newX - currentFake.x) * lag,
-        //     y: currentFake.y + (newY - currentFake.y) * lag
-        // };
-        
-        // Immediate update for responsiveness + drift
-        return { x: newX, y: newY };
+        const next = { x: newX, y: newY };
+        fakePosRef.current = next;
+        return next;
       });
 
       animationFrameId = requestAnimationFrame(update);
@@ -223,7 +225,7 @@ export default function LiarsCursorGame() {
 
     animationFrameId = requestAnimationFrame(update);
     return () => cancelAnimationFrame(animationFrameId);
-  }, [realPos, gameState, levelIndex, velocity]);
+  }, [realPos, gameState, levelIndex, isRevealing]);
 
 
   // --- Input Handlers ---
@@ -273,7 +275,8 @@ export default function LiarsCursorGame() {
 
         // Check collisions with registered buttons using FAKE cursor pos
         let hit = false;
-        const collisionPoint = { x: fakePos.x, y: fakePos.y };
+        // Use ref here to access latest position without triggering effect re-run
+        const collisionPoint = { x: fakePosRef.current.x, y: fakePosRef.current.y };
 
         Object.entries(buttonRects).forEach(([id, rect]) => {
             if (
@@ -309,7 +312,7 @@ export default function LiarsCursorGame() {
       window.removeEventListener("click", handleClick);
       window.removeEventListener("contextmenu", handleClick);
     };
-  }, [gameState, fakePos, buttonRects, levelIndex]);
+  }, [gameState, buttonRects, levelIndex]); // Removed fakePos from dependencies
 
 
   // --- Game Logic ---
@@ -342,23 +345,9 @@ export default function LiarsCursorGame() {
 
 
   // --- Render Helpers ---
-  const measureButton = useCallback((id: string, node: HTMLButtonElement | null) => {
-      buttonRefs.current[id] = node;
-      if (node) {
-          const rect = node.getBoundingClientRect();
-          setButtonRects(prev => ({ ...prev, [id]: rect }));
-      } else {
-          setButtonRects(prev => {
-              const next = { ...prev };
-              delete next[id];
-              return next;
-          });
-      }
-  }, []);
-
-  // Handle Resize
+  // Re-measure on level change or resize
   useEffect(() => {
-      const handleResize = () => {
+      const updateRects = () => {
           const newRects: Record<string, DOMRect> = {};
           Object.entries(buttonRefs.current).forEach(([id, node]) => {
               if (node) {
@@ -367,13 +356,19 @@ export default function LiarsCursorGame() {
           });
           setButtonRects(newRects);
       };
-      
-      window.addEventListener('resize', handleResize);
-      // Also update when level changes as layout might shift
-      handleResize();
-      
-      return () => window.removeEventListener('resize', handleResize);
+
+      // Initial measure
+      updateRects();
+
+      // Listen for resize
+      window.addEventListener('resize', updateRects);
+      return () => window.removeEventListener('resize', updateRects);
   }, [levelIndex]);
+
+  // Just store the ref, don't trigger state update here to avoid render loops
+  const measureButton = useCallback((id: string, node: HTMLButtonElement | null) => {
+      buttonRefs.current[id] = node;
+  }, []);
 
 
   return (

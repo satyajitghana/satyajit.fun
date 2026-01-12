@@ -10,7 +10,7 @@
 .keyboard-heat-theme {
   background-color: var(--heat-bg);
   color: var(--heat-fg);
-  font-family: 'Courier New', Courier, monospace;
+  font-family: var(--font-jetbrains);
 }
 
 .key-container {
