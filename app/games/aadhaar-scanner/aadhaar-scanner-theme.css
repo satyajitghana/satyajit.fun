@@ -1,0 +1,168 @@
+/* Aadhaar Scanner Theme */
+.aadhaar-scanner-theme {
+    --aadhaar-red: #d93737;
+    --aadhaar-orange: #f7941d;
+    --background: #f8fafc;
+    --foreground: #1e293b;
+    --card: #ffffff;
+    --card-border: rgba(0, 0, 0, 0.08);
+}
+
+/* Aadhaar Red utility classes */
+.bg-aadhaar-red {
+    background-color: #d93737;
+}
+
+.text-aadhaar-red {
+    color: #d93737;
+}
+
+.bg-aadhaar-red\/10 {
+    background-color: rgba(217, 55, 55, 0.1);
+}
+
+.shadow-red-100 {
+    box-shadow: 0 10px 15px -3px rgba(217, 55, 55, 0.1), 0 4px 6px -4px rgba(217, 55, 55, 0.1);
+}
+
+/* Guilloche background pattern (security pattern) */
+.bg-guilloche {
+    background-image:
+        repeating-radial-gradient(
+            circle at 50% 50%,
+            transparent 0,
+            transparent 10px,
+            rgba(0, 0, 0, 0.03) 10px,
+            rgba(0, 0, 0, 0.03) 11px
+        ),
+        repeating-radial-gradient(
+            circle at 0% 0%,
+            transparent 0,
+            transparent 8px,
+            rgba(0, 0, 0, 0.02) 8px,
+            rgba(0, 0, 0, 0.02) 9px
+        );
+}
+
+/* Holographic overlay effect */
+.holographic-overlay {
+    background: linear-gradient(
+        135deg,
+        rgba(255, 0, 150, 0.1) 0%,
+        rgba(0, 255, 255, 0.1) 25%,
+        rgba(255, 255, 0, 0.1) 50%,
+        rgba(0, 255, 150, 0.1) 75%,
+        rgba(255, 0, 150, 0.1) 100%
+    );
+    background-size: 400% 400%;
+    animation: holographic-shift 8s ease infinite;
+}
+
+@keyframes holographic-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Card shine effect */
+.card-shine {
+    background: linear-gradient(
+        105deg,
+        transparent 40%,
+        rgba(255, 255, 255, 0.5) 45%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 0.5) 55%,
+        transparent 60%
+    );
+    background-size: 200% 100%;
+    animation: card-shine-move 3s ease-in-out infinite;
+}
+
+@keyframes card-shine-move {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Perspective for 3D card effect */
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+/* Custom scrollbar for signature display */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(74, 222, 128, 0.4);
+    border-radius: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: rgba(74, 222, 128, 0.6);
+}
+
+/* Animation utilities */
+.animate-in {
+    animation: animate-in-keyframes 0.5s ease-out forwards;
+}
+
+.fade-in {
+    opacity: 0;
+}
+
+.slide-in-from-bottom-6 {
+    transform: translateY(1.5rem);
+}
+
+.slide-in-from-top-2 {
+    transform: translateY(-0.5rem);
+}
+
+@keyframes animate-in-keyframes {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Pulse glow animation */
+@keyframes pulse-glow {
+    0%, 100% {
+        box-shadow: 0 0 20px rgba(217, 55, 55, 0.2);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(217, 55, 55, 0.4);
+    }
+}
+
+.pulse-glow {
+    animation: pulse-glow 2s infinite;
+}
+
+/* Glass panel effect */
+.glass-panel {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 24px -1px rgba(0, 0, 0, 0.1);
+}

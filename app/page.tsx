@@ -5,7 +5,7 @@ import { Navbar } from "@/components/navbar";
 import ShinyText from "@/components/react-bits/ShinyText";
 import Silk from "@/components/react-bits/Silk";
 import { motion } from "motion/react";
-import { KeyRound, Circle, ArrowUpRight, Star, Palette, ThermometerSun, BrainCircuit, ListTodo, Eye, Scan, Loader, Shuffle, Terminal, MousePointerClick, Timer, Waves, Fingerprint, Layers, Hourglass, CreditCard, ScanEye, RotateCcw, Weight, RefreshCw, Flame, MousePointer2, ShieldAlert, HardDrive, Wind, Sparkles, Wand2 } from "lucide-react";
+import { KeyRound, Circle, ArrowUpRight, Star, Palette, ThermometerSun, BrainCircuit, ListTodo, Eye, Scan, Loader, Shuffle, Terminal, MousePointerClick, Timer, Waves, Fingerprint, Layers, Hourglass, CreditCard, ScanEye, RotateCcw, Weight, RefreshCw, Flame, MousePointer2, ShieldAlert, HardDrive, Wind, Sparkles, Wand2, ScanLine } from "lucide-react";
 
 const games = [
   {
@@ -224,6 +224,13 @@ const games = [
     description: "Colors deceive. Labels mislead. Only consistency is betrayal.",
     icon: ShieldAlert,
     accentColor: "#ef4444",
+  },
+  {
+    id: "aadhaar-scanner",
+    title: "Aadhaar Scanner",
+    description: "Scan and decode UIDAI Aadhaar QR codes. Supports Secure V2 and legacy XML formats.",
+    icon: ScanLine,
+    accentColor: "#d93737",
   },
 ];
 
