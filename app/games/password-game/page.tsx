@@ -70,7 +70,7 @@ const rules: Rule[] = [
 	},
 	{
 		id: 9,
-		description: "The Roman numerals in your password should multiply to 35",
+		description: "The Roman numerals in your password should multiply to 50",
 		validate: (p) => {
 			const romanValues: Record<string, number> = {
 				I: 1, V: 5, X: 10, L: 50, C: 100, D: 500, M: 1000,
@@ -78,7 +78,7 @@ const rules: Rule[] = [
 			const romans = p.match(/[IVXLCDM]/g);
 			if (!romans) return false;
 			const product = romans.reduce((acc, r) => acc * romanValues[r], 1);
-			return product === 35;
+			return product === 50;
 		},
 	},
 	{
